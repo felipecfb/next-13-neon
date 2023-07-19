@@ -1,3 +1,8 @@
-export default function Home() {
-  return <h1>Hello World</h1>
+import { db } from '@/db'
+import { users } from '@/db/schema'
+
+export default async function Home() {
+  const allUsers = await db.select().from(users)
+
+  return <p>{JSON.stringify(allUsers, null, 2)}</p>
 }
