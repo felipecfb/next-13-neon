@@ -1,10 +1,7 @@
-import { InferModel } from 'drizzle-orm'
+import { revalidatePath } from 'next/cache'
 
 import { db } from '@/db'
 import { users } from '@/db/schema'
-import { revalidatePath } from 'next/cache'
-
-type NewUser = InferModel<typeof users, 'insert'>
 
 export default async function Home() {
   const allUsers = await db.select().from(users)
