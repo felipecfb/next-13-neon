@@ -2,6 +2,7 @@ import { revalidatePath } from 'next/cache'
 
 import { db } from '@/db'
 import { users } from '@/db/schema'
+import { Test } from './components/Test'
 
 export default async function Home() {
   const allUsers = await db.select().from(users)
@@ -43,6 +44,8 @@ export default async function Home() {
 
         <button type="submit">Create</button>
       </form>
+
+      <Test />
     </div>
   )
 }
